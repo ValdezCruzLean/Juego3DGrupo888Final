@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuInicial.unity
+    guid: fdd85e07595ec42419e7efd1bc4659c2
+  - enabled: 1
+    path: Assets/Scenes/Laberinto.unity
+    guid: 617495baa1a363f40801c0f446dc4dd0
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 8e7e4caabdf3ae846a74c2cb465a94c4
+  - enabled: 1
+    path: Assets/Scenes/Futbol.unity
+    guid: 231190305083da94eab1eb39ddd015c1
+  - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: 1a2605ada72d52844af08f88fb114cf3
+  - enabled: 1
+    path: Assets/Scenes/salaPrincipal.unity
+    guid: 82e64d36e85748c44922beb8636984c9
+  - enabled: 1
+    path: Assets/Scenes/Pachinko.unity
+    guid: 9af272a23285d814cb887462096cda0f
   m_configObjects: {}
