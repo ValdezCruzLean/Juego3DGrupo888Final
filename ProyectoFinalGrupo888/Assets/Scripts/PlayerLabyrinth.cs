@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerLabyrinth : MonoBehaviour
 {
-    /*Veriable que representa la velocidad a la que se moverá el jugador en el ejeX*/
-    private float velocidadX = -600f;
-    /*Veriable que representa la velocidad a la que se moverá el jugador en el ejeY*/
-    private float velocidadY = 600f;
+    /*Veriable que representa la velocidad a la que se moverï¿½ el jugador en el ejeX*/
+    [SerializeField] private float velocidadX = -600f;
+    /*Veriable que representa la velocidad a la que se moverï¿½ el jugador en el ejeY*/
+    [SerializeField] private float velocidadY = 600f;
     /*Veriable que representa la posicion final del jugador*/
-    private float positionFinal = -20;
-    /*Es una variable privada que contendrá el componente Rigidbody del GameObject*/
+    [SerializeField] private float positionFinal = -20;
+    /*Es una variable privada que contendrï¿½ el componente Rigidbody del GameObject*/
     private Rigidbody rb;
 
     // Start is called before the first frame update
@@ -37,7 +37,7 @@ public class PlayerLabyrinth : MonoBehaviour
         }
 
     }
-    /* Este método se encarga de mover el jugador.
+    /* Este mï¿½todo se encarga de mover el jugador.
   * MoveX Actualiza la velocidad del componente Rigidbody en el eje X. La velocidad en los ejes Y Z permanece sin cambios. 
   * MoveY Actualiza la velocidad del componente Rigidbody en el eje Y. La velocidad en los ejes X Z permanece sin cambios.*/
     public void MoverX(float velocidadX)

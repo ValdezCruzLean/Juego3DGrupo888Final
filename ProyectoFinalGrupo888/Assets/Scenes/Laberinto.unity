@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 562246829}
   - component: {fileID: 562246830}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Jugador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1211,6 +1211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178e0887b25cb804eb149042e9e37f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocidadX: -1200
+  velocidadY: 1200
+  positionFinal: -20
 --- !u!1 &604237634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,51 +2116,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad24a2f68dac41c4c887a9b50432d102, type: 3}
---- !u!1 &1097234971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1097234973}
-  - component: {fileID: 1097234972}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1097234972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097234971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba522accf83b5b4a83810085ca6d5ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hud: {fileID: 878574548}
---- !u!4 &1097234973
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097234971}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16463041, y: 2.869748, z: -20.284718}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1101647722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3538,6 +3496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50558e3b9ae9ceb449a9062e25b5b84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timmer: 40
   textTimmer: {fileID: 1143220139}
 --- !u!1 &1664007525
 GameObject:
@@ -4525,7 +4484,6 @@ SceneRoots:
   - {fileID: 604237635}
   - {fileID: 121397221}
   - {fileID: 878574547}
-  - {fileID: 1097234973}
   - {fileID: 1629116360}
   - {fileID: 562246824}
   - {fileID: 830653752}
