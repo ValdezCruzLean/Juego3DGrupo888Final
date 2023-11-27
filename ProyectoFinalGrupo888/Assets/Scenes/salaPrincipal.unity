@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 274616599}
-  moveSpeed: 0
+  speed: 10
 --- !u!143 &274616599
 CharacterController:
   m_ObjectHideFlags: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e0fa2669a0a9c4591e4fc681766a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 1.5
+  distanciaRayo: 1.5
 --- !u!4 &283906472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4342457500952139584, guid: 04016ba4c2ee253489dd6e88aeeb4c26, type: 3}
@@ -1918,6 +1918,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04016ba4c2ee253489dd6e88aeeb4c26, type: 3}
+--- !u!1 &804394589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1359019546358280, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
+  m_PrefabInstance: {fileID: 1472797232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &807510575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4730018736467080, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
@@ -2920,6 +2925,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4730018736467080, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
   m_PrefabInstance: {fileID: 1472797232}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1173755081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804394589}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0000007, y: 4.0892677, z: 2.5068247}
+  m_Center: {x: -0.00583756, y: 2.0619397, z: 0.21266255}
 --- !u!1 &1204960642
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,6 +3414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcadeStandardPolice (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1359019546358280, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4730018736467080, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.221
@@ -3443,7 +3473,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1359019546358280, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1173755081}
   m_SourcePrefab: {fileID: 100100000, guid: 88cc9a01ef104764595a70aa18dc6761, type: 3}
 --- !u!4 &1478180677 stripped
 Transform:

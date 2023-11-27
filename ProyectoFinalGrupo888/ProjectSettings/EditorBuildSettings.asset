@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pachinko.unity
     guid: 9af272a23285d814cb887462096cda0f
+  - enabled: 1
+    path: Assets/Scenes/AutoPerdido.unity
+    guid: 6a2e869c75d2b764d9b19c501dfb7945
   m_configObjects: {}

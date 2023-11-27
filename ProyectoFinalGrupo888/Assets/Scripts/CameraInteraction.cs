@@ -4,48 +4,45 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CameraInteraction : MonoBehaviour
 {
+    //Hace referencia al transform de la cámara.
     private new Transform camera;
-    [SerializeField]private float rayDistance;
-     private bool clickRegistered = false;
-    // Start is called before the first frame update
+    //Distancia máxima del Raycast.
+    [SerializeField]private float distanciaRayo;
     void Start()
     {
+        //Encuentra el transform de la cámara.
         camera = transform.Find("Main Camera");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(camera.position, camera.forward * rayDistance, Color.red);
+        //Dibuja el Raycast en color rojo.
+        Debug.DrawRay(camera.position, camera.forward * distanciaRayo, Color.red);
 
         RaycastHit hit;
-        if(Physics.Raycast(camera.position, camera.forward, out hit, rayDistance)){
+        //Realiza el Raycast.
+        if(Physics.Raycast(camera.position, camera.forward, out hit, distanciaRayo)){
+            //Obtiene el número de la capa del objeto con el que colisionó el Raycast.
             int layer = hit.collider.gameObject.layer;
-            //Debug.Log(hit.transform.name);
-            // if (Input.GetMouseButtonDown(0) && !clickRegistered)
-            // {
-            //     clickRegistered = true;
-            //     SceneManager.LoadScene("Pachinko");
-            // }
-            if (layer == LayerMask.NameToLayer("Pachinko") && Input.GetMouseButtonDown(0) && !clickRegistered)
+            //Verifica si se está colisionando con la capa especificada y si se realizó un click.
+            if (layer == LayerMask.NameToLayer("Pachinko") && Input.GetMouseButtonDown(0))
             {
-                clickRegistered = true;
+                //Carga la escena especificada.
                 SceneManager.LoadScene("Pachinko");
             }
-            else if (layer == LayerMask.NameToLayer("Laberinto") && Input.GetMouseButtonDown(0) && !clickRegistered)
+            else if (layer == LayerMask.NameToLayer("Laberinto") && Input.GetMouseButtonDown(0))
             {
-                clickRegistered = true;
                 SceneManager.LoadScene("Laberinto");
             }
-            else if (layer == LayerMask.NameToLayer("Futbol") && Input.GetMouseButtonDown(0) && !clickRegistered)
+            else if (layer == LayerMask.NameToLayer("Futbol") && Input.GetMouseButtonDown(0))
             {
-                clickRegistered = true;
                 SceneManager.LoadScene("Futbol");
             }
+            else if (layer == LayerMask.NameToLayer("AutoPerdido") && Input.GetMouseButtonDown(0))
+            {
+                SceneManager.LoadScene("AutoPerdido");
+            }
         }
-        else
-        {
-            clickRegistered = false;
-        }
+
     }
 }
