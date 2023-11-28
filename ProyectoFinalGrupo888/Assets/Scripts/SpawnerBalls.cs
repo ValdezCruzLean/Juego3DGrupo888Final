@@ -16,7 +16,7 @@ public class SpawnerBalls : MonoBehaviour
 
     // Start is called before the first frame update
     /*En el metodo Start(), se utiliza InvokeRepeating para llamar repetidamente al método GenerarEnemigo
-     * Esto significa que GenerarEnemigo se ejecutará cada 2 segundos después de que el juego comience.*/
+     * Esto significa que GenerarEnemigo se ejecutará cada 3.5 segundos después de que el juego comience.*/
     void Start()
     {
         InvokeRepeating("GenerarEnemigo", 0, 3.5f);
@@ -37,7 +37,9 @@ public class SpawnerBalls : MonoBehaviour
             
         }
     }
-
+    /*Metodo para generar enemigos se utiliza la función Instantiate para crear una instancia de un objeto.
+     pasando primero el objeto despues su posicion (que es la de nuestro spawner)y por ultimo 
+     Quaternion.identity diciendo que wl objeto enemigo se instanciará sin ninguna rotación*/
     public void GenerarEnemigo()
     {
             Instantiate(enemigo01, transform.position, Quaternion.identity);
