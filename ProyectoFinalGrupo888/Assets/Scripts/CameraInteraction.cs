@@ -38,10 +38,6 @@ public class CameraInteraction : MonoBehaviour
             {
                 SceneManager.LoadScene("Futbol");
             }
-            else if (layer == LayerMask.NameToLayer("AutoPerdido") && Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene("AutoPerdido");
-            }
         }
 
     }
