@@ -9,7 +9,7 @@ public class Footballball : MonoBehaviour
     private void Update()
     {
         //Hace que al apretar el espacio la pelota se dirija hacia el arco
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody>().AddForce(Vector3.forward * Force, ForceMode.Impulse);
         }
