@@ -1,53 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerLabyrinth : MonoBehaviour
 {
-    /*Veriable que representa la velocidad a la que se mover� el jugador en el ejeX*/
-    [SerializeField] private float velocidadX = -600f;
-    /*Veriable que representa la velocidad a la que se mover� el jugador en el ejeY*/
-    [SerializeField] private float velocidadY = 600f;
-    /*Veriable que representa la posicion final del jugador*/
-    [SerializeField] private float positionFinal = -20;
-    /*Es una variable privada que contendr� el componente Rigidbody del GameObject*/
+    [Header("Velocidades del jugador")]
+    [SerializeField] private float velocidadX = 6f;  // Unidades por segundo
+    [SerializeField] private float velocidadY = 6f;  // Unidades por segundo
+
+    [Header("Posición límite")]
+    [SerializeField] private float positionFinal = -20f;
+
     private Rigidbody rb;
 
-    // Start is called before the first frame update
-    /*Se llama al inicio del juego. Se obtiene el componente Rigidbody del GameObject */
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    // Update is called once per frame
-    /*Obtiene la entrada del eje horizontal con las teclas izquierda y derecha y la almacena en movimientoX.
-     * Llama al metodo MoveX() con la velocidad calculada multiplicando velocidad por el valor de entrada horizontal controlando el movimiento lateral del jugador.
-      *Obtiene la entrada del eje vertical con las teclas arriba y abajo y la almacena en movimientoY.
-     * Llama al metodo MoveY() con la velocidad calculada multiplicando velocidad por el valor de entrada horizontal controlando el movimiento lateral del jugador..*/
 
     void Update()
     {
+        // Entradas del jugador
         float movimientoX = Input.GetAxis("Horizontal");
-        MoverX(velocidadX * movimientoX);
         float movimientoY = Input.GetAxis("Vertical");
-        MoverY(velocidadY * movimientoY);
-        if (this.transform.position.x < positionFinal)
+
+        // Movimiento usando Rigidbody (sin deltaTime)
+        Mover(movimientoX, movimientoY);
+
+        // Destruye el jugador si supera la posición límite
+        if (transform.position.x < positionFinal)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-
     }
-    /* Este m�todo se encarga de mover el jugador.
-  * MoveX Actualiza la velocidad del componente Rigidbody en el eje X. La velocidad en los ejes Y Z permanece sin cambios. 
-  * MoveY Actualiza la velocidad del componente Rigidbody en el eje Y. La velocidad en los ejes X Z permanece sin cambios.*/
-    public void MoverX(float velocidadX)
+
+    private void Mover(float movimientoX, float movimientoY)
     {
-        rb.velocity = new Vector3(velocidadX * Time.deltaTime, rb.velocity.y, rb.velocity.z);
-    }
-    public void MoverY(float velocidadY)
-    {
-        rb.velocity = new Vector3(rb.velocity.x, velocidadY * Time.deltaTime, rb.velocity.z);
-    }
+        // Calculamos la velocidad deseada (en unidades/segundo)
+        Vector3 nuevaVelocidad = new Vector3(
+            movimientoX * velocidadX,
+            movimientoY * velocidadY,
+            rb.velocity.z
+        );
 
-
+        // Asignamos la velocidad al Rigidbody
+        rb.velocity = nuevaVelocidad;
+    }
 }
