@@ -24,12 +24,12 @@ public class HUD : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Pachinko")
         {
-            puntos.text = "Puntaje: " + ScriptGameManager.instance.PuntosTotales.ToString() + "/10";
+            puntos.text = ": " + ScriptGameManager.instance.PuntosTotales.ToString() + "/10";
            
         }
         if (SceneManager.GetActiveScene().name == "Futbol")
         {
-            puntos.text = "Puntaje: " + ScriptGameManager.instance.PuntosTotales.ToString() + "/10";
+            puntos.text = ": " + ScriptGameManager.instance.PuntosTotales.ToString() + "/10";
 
         }
 

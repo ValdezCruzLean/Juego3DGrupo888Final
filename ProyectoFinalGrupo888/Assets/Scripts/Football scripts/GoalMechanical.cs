@@ -1,26 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GoalMechanical : MonoBehaviour
 {
     public GameObject Ball;
-    private int valorSuma=1;
+    private int valorSuma = 1;
+
     private void OnCollisionEnter(Collision collision)
     {
-        //Verifica la colicion con el arquero
         if (collision.gameObject.CompareTag("Ball"))
         {
-          //Se encarga de que el generador genere una pelota cuando otra colisiona con el arco
+            // Generar una nueva pelota
             GeneratorBall generator = FindObjectOfType<GeneratorBall>();
             if (generator != null)
-            {
                 generator.GenerateBall();
-            }
-            //destruye la pelota
+
+            // Destruir la pelota
             Destroy(collision.gameObject);
-            //suma un punto al puntaje
+
+            // Sumar puntos
             ScriptGameManager.instance.SumarPuntos(valorSuma);
+
+            // 🔥 Aumentar velocidad del arquero si existe
+            Goalkeeper arquero = FindObjectOfType<Goalkeeper>();
+            if (arquero != null)
+                arquero.AumentarVelocidad();
         }
     }
 }

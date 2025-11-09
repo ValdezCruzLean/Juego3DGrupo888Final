@@ -1,37 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class CharacterMovement : MonoBehaviour
 {
-    /*Veriable que representa la velocidad a la que se mover� el jugador,*/
-   private float velocidad = -1500f;
-    /*Es una variable privada que contendra el componente Rigidbody del GameObject*/
+    [Header("Velocidad del jugador (unidades por segundo)")]
+    [SerializeField] private float velocidad = 3f; // Recomendado: entre 2 y 6
+
     private Rigidbody rb;
 
-    // Start is called before the first frame update
-    /*Se llama al inicio del juego. Se obtiene el componente Rigidbody del GameObject */
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        // Evita que la física afecte rotación o caída si no querés gravedad
+        rb.freezeRotation = true;
+        rb.useGravity = false;
     }
-    // Update is called once per frame
-    /*Obtiene la entrada del eje horizontal con las teclas izquierda y derecha  y la almacena en movimientoX.
-     * Llama al metodo Move() con la velocidad calculada multiplicando velocidad por el valor de entrada horizontal controlando el movimiento lateral del jugador.
-     */
 
     void Update()
     {
         float movimientoX = Input.GetAxis("Horizontal");
-        Mover(velocidad * movimientoX);
-       
+        Mover(movimientoX);
     }
-    /* Este metodo se encarga de mover el jugador.
-     * Actualiza la velocidad del componente Rigidbody en el eje X. La velocidad en los ejes Y Z permanece sin cambios. */
-    public void Mover(float velocidadX)
+
+    private void Mover(float movimientoX)
     {
-        rb.velocity = new Vector3(velocidadX * Time.deltaTime, rb.velocity.y, rb.velocity.z);
+        // Movimiento horizontal (en el eje X)
+        Vector3 movimiento = new Vector3(movimientoX, 0f, 0f);
+
+        // Mueve al jugador suavemente con respecto al tiempo
+        rb.MovePosition(rb.position + movimiento * velocidad * Time.deltaTime);
     }
-   
-   
 }

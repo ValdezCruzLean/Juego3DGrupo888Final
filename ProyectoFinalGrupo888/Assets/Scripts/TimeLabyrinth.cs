@@ -21,7 +21,7 @@ public class TimeLabyrinth : MonoBehaviour
     void Update()
     {
         timmer -= Time.deltaTime;
-        textTimmer.text = "Tiempo Restante: " + timmer.ToString("F0");
+        textTimmer.text = ": " + timmer.ToString("F0");
         if (timmer < finalTime)
         {
             SceneManager.LoadScene("GameOver");
