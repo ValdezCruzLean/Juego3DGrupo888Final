@@ -51,11 +51,11 @@ public class ScriptGameManager : MonoBehaviour
         hud.ActualizarPuntos(puntosTotales);
         if (SceneManager.GetActiveScene().name == "Pachinko" && puntosTotales >= 10)
         {
-            SceneManager.LoadScene("YouWin");
+            FindObjectOfType<Pantallafinaljuego>().ShowEndGame(true);
         }
         if (SceneManager.GetActiveScene().name == "Futbol" && puntosTotales >= 10)
         {
-            SceneManager.LoadScene("YouWin");
+            FindObjectOfType<Pantallafinaljuego>().ShowEndGame(true);
         }
 
     }
@@ -71,7 +71,7 @@ public class ScriptGameManager : MonoBehaviour
         hud.ActualizarPuntos(puntosTotales);
         if (puntosTotales <= 0)
        {
-           SceneManager.LoadScene("GameOver");
+            FindObjectOfType<Pantallafinaljuego>().ShowEndGame(false);
         }
 
     }

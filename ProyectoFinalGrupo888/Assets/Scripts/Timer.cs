@@ -17,7 +17,8 @@ public class Timer : MonoBehaviour
        textTimmer.text = ": " + timmer.ToString("F0");
         if(timmer< finalTime)
         {
-            SceneManager.LoadScene("GameOver");
+            FindObjectOfType<Pantallafinaljuego>().ShowEndGame(false);
+            this.enabled = false;
         }
     }
 

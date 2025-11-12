@@ -14,6 +14,7 @@ public class PlayerLabyrinth : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        gameObject.SetActive(true);
     }
 
     void Update()

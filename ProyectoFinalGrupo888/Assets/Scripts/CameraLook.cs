@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraLook : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class CameraLook : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 1f;
+        if (EventSystem.current == null)
+        {
+            Debug.LogWarning(" No hay EventSystem, agregando uno...");
+            GameObject obj = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
+        }
     }
 
     void Update()

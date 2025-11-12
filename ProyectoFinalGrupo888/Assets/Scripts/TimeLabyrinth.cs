@@ -9,7 +9,7 @@ public class TimeLabyrinth : MonoBehaviour
     /*Variable que representa el tiempo final, cuando se alcanza este tiempo, se carga la escena de Game Over.*/
     private float finalTime = 0f;
     /*Tiempo inicial que se va reduciendo en cada actualizacion.*/
-    [SerializeField] private float timmer = 35f;
+    [SerializeField] private float timmer = 60f;
     /*Referencia al objeto TextMeshProUGUI para mostrar el tiempo restante.*/
     public TextMeshProUGUI textTimmer;
 
@@ -24,7 +24,7 @@ public class TimeLabyrinth : MonoBehaviour
         textTimmer.text = ": " + timmer.ToString("F0");
         if (timmer < finalTime)
         {
-            SceneManager.LoadScene("GameOver");
+            FindObjectOfType<Pantallafinaljuego>().ShowEndGame(false);
         }
     }
 

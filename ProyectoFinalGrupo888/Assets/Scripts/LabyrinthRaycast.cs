@@ -1,38 +1,28 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LabyrinthRaycast : MonoBehaviour
-{   /*Variable que representa el rango maximo del rayo.*/
+{
     private float range = 10f;
-    // Start is called before the first frame update
-    void Start()
-    {
+    private bool levelEnded = false; //  evita llamadas múltiples
 
-    }
-
-    // Update is called once per frame
-    /* RaycastHit hit Estructura que almacena informaci�n sobre el rayo lanzado.
-     * Lanzar un rayo hacia adelante desde la posicion actual del objeto.
-     * El rayo tiene una longitud igual al rango especificado.
-     * Verificar si el rayo ha golpeado un objeto (collider).
-     * Carga la escena "YouWin" si el rayo golpea un objeto.  .*/
     void Update()
     {
+        if (levelEnded) return; //  si ya terminó, no sigue detectando
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
-                SceneManager.LoadScene("YouWin");
+                levelEnded = true; //  marca que ya terminó
+                FindObjectOfType<Pantallafinaljuego>().ShowEndGame(true);
             }
         }
-       
     }
-    /*Metodo llamado en el editor para dibujar gizmos que ayudan en la visualizacion.
-     * Establece el color de los gizmos a amarillo.
-     * Dibujar el rayo en el editor, desde la posici�n del objeto hacia adelante multiplicado por el rango.*/
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
