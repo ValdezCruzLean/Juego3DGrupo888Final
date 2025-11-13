@@ -18,12 +18,14 @@ public class Pantallafinaljuego : MonoBehaviour
 
     public void Retry()
     {
+        PanelInicioManager.MarcarReinicio();
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ReturnToLobby()
     {
+        PanelInicioManager.ReiniciarPanel();
         Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("salaPrincipal"); // Cambiá "Lobby" por el nombre real de tu escena de sala
     }
