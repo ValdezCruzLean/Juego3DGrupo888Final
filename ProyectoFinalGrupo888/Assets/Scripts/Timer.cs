@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 { private float finalTime = 0f;
-    private float timmer = 60f;
+    public float timmer = 65f;
     public TextMeshProUGUI textTimmer;
    
     void Update()
