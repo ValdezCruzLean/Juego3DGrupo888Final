@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,21 +10,26 @@ public class Pantallafinaljuego : MonoBehaviour
     public void ShowEndGame(bool playerWon)
     {
         uiPanel.SetActive(true);
-        resultText.text = playerWon ? "¡GANASTE!" : "PERDISTE";
-        Time.timeScale = 0f; // Pausar juego
+        resultText.text = playerWon ? "¡GANASTE!" : "PERDISTE!";
+
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
 
     public void Retry()
     {
-        PanelInicioManager.MarcarReinicio();
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        AudioListener.pause = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ReturnToLobby()
     {
-        PanelInicioManager.ReiniciarPanel();
+        PanelInicioManager.ResetearTodosLosPaneles();
+
         Time.timeScale = 1f;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("salaPrincipal"); // Cambiá "Lobby" por el nombre real de tu escena de sala
+        AudioListener.pause = false;
+
+        SceneManager.LoadScene("salaPrincipal");
     }
 }

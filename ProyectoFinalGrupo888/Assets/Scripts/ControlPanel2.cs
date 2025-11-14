@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PanelInicioManager : MonoBehaviour
@@ -6,31 +7,31 @@ public class PanelInicioManager : MonoBehaviour
     [SerializeField] private GameObject panelInicio;
     [SerializeField] private GameObject canvasHUD;
 
-    private static bool yaMostrado = false;
-    private static bool reinicio = false;
+    private static HashSet<string> escenasYaMostradas = new HashSet<string>();
+
+    private string escenaActual;
 
     private void Awake()
     {
-        // Si la escena se cargó desde un reinicio, no mostrar el panel
-        if (reinicio)
-        {
-            yaMostrado = true;
-            reinicio = false; // reseteamos para próximas entradas
-        }
+        escenaActual = SceneManager.GetActiveScene().name;
 
-        // Mostrar o no el panel según el estado
+        bool yaMostrado = escenasYaMostradas.Contains(escenaActual);
+
         if (!yaMostrado)
         {
+            // Primera vez en esta escena
             Time.timeScale = 0f;
             AudioListener.pause = true;
 
-            if (panelInicio != null) panelInicio.SetActive(true);
-            if (canvasHUD != null) canvasHUD.SetActive(false);
+            panelInicio.SetActive(true);
+            canvasHUD.SetActive(false);
         }
         else
         {
-            if (panelInicio != null) panelInicio.SetActive(false);
-            if (canvasHUD != null) canvasHUD.SetActive(true);
+            // Ya visto → entrar directo
+            panelInicio.SetActive(false);
+            canvasHUD.SetActive(true);
+
             Time.timeScale = 1f;
             AudioListener.pause = false;
         }
@@ -41,22 +42,16 @@ public class PanelInicioManager : MonoBehaviour
         Time.timeScale = 1f;
         AudioListener.pause = false;
 
-        if (panelInicio != null) panelInicio.SetActive(false);
-        if (canvasHUD != null) canvasHUD.SetActive(true);
+        panelInicio.SetActive(false);
+        canvasHUD.SetActive(true);
 
-        yaMostrado = true;
+        // Marcar esta escena como “ya mostrado”
+        escenasYaMostradas.Add(escenaActual);
     }
 
-    // 🔁 Llamar cuando se usa el botón "Reiniciar"
-    public static void MarcarReinicio()
+    // Se llama desde el lobby
+    public static void ResetearTodosLosPaneles()
     {
-        reinicio = true;
-    }
-
-    // 🏠 Llamar cuando se vuelve al lobby (desde botón "Volver al menú")
-    public static void ReiniciarPanel()
-    {
-        yaMostrado = false;
-        reinicio = false;
+        escenasYaMostradas.Clear();
     }
 }
