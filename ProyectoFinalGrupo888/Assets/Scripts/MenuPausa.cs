@@ -71,10 +71,12 @@ public class MenuPausa : MonoBehaviour
         }
     }
 
+
     public void Lobby()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("salaPrincipal");
+        PanelInicioManager.ResetearTodosLosPaneles();
     }
 
     public void Salir()
