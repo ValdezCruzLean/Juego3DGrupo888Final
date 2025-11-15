@@ -19,7 +19,7 @@ public class SpawnerBalls : MonoBehaviour
      * Esto significa que GenerarEnemigo se ejecutará cada 3.5 segundos después de que el juego comience.*/
     void Start()
     {
-        InvokeRepeating("GenerarEnemigo", 0, 3.5f);
+        InvokeRepeating("GenerarEnemigo", 0, 4f);
     }
 
     // Update is called once per frame
