@@ -3071,7 +3071,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de99d5bcbf81c5748808206ed3712c12, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3859,6 +3859,7 @@ GameObject:
   - component: {fileID: 1195388377}
   - component: {fileID: 1195388376}
   - component: {fileID: 1195388378}
+  - component: {fileID: 1195388379}
   m_Layer: 0
   m_Name: GameMagnament
   m_TagString: Untagged
@@ -3911,6 +3912,19 @@ MonoBehaviour:
   btnReiniciar: {fileID: 813372338}
   btnLobby: {fileID: 15946535}
   btnSalir: {fileID: 1491817295}
+--- !u!114 &1195388379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195388375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3933326ee8d1248bbb7150090f8e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1587546058}
 --- !u!1001 &1212679840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4402,6 +4416,7 @@ GameObject:
   - component: {fileID: 1329586422}
   - component: {fileID: 1329586421}
   - component: {fileID: 1329586420}
+  - component: {fileID: 1329586424}
   m_Layer: 5
   m_Name: MenuPausa
   m_TagString: Untagged
@@ -4497,6 +4512,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1329586424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329586419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3933326ee8d1248bbb7150090f8e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1790517710}
 --- !u!4 &1332535741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 182615485920826391, guid: ad24a2f68dac41c4c887a9b50432d102, type: 3}
@@ -5623,7 +5651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50558e3b9ae9ceb449a9062e25b5b84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timmer: 40
+  timmer: 55
   textTimmer: {fileID: 1143220139}
 --- !u!1 &1656805130
 GameObject:
